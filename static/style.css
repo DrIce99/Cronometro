@@ -10,7 +10,7 @@
 body {
     background: #000;
     color: #fff;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     overflow: hidden;
     font-family: 'Segoe UI', Roboto, sans-serif;
@@ -19,7 +19,7 @@ body {
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     padding: 5px;
     gap: 10px;
     overflow: hidden;
@@ -37,6 +37,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    min-height: 35dvh;
 }
 
 .header {
@@ -65,11 +66,13 @@ body {
 }
 
 .timer-row {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50%;
+    /* height: 50%; */
     position: relative;
+    min-height: 0;
 }
 
 .btn-continua {
@@ -87,10 +90,15 @@ body {
 }
 
 .display {
-    font-size: 15vw;
+    font-size: 12vw;
     font-weight: bold;
     color: #31ff64;
     font-family: monospace;
+    text-align: center;
+    width: 100%;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    container-name: row-bar;
 }
 
 .delta-container {
@@ -106,8 +114,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4vw;
+    /* font-size: 4vw; */
     font-weight: bold;
+    font-size: clamp(16px, 3.5vw, 32px);
 }
 
 /* Overlay (come prima) */
@@ -181,7 +190,8 @@ body {
 .start {
     background: #31ff64;
     border-bottom: 6px solid #219f3f;
-    color: black
+    color: black;
+
 }
 
 .stop {
@@ -192,7 +202,7 @@ body {
 .lap {
     background: #ffdd00;
     border-bottom: 6px solid #c5b500;
-    color: black
+    color: black;
 }
 
 .btn:active {
@@ -378,4 +388,106 @@ select#meteo {
     color: white;
     border: none;
     border-radius: 5px;
+}
+
+.edit-card {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    height: 80dvh;
+    background: #111;
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 200;
+    box-shadow: 0 0 20px #000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.edit-card.hidden {
+    display: none;
+}
+
+.edit-header h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.edit-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-body input, .edit-body select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+}
+
+.parziale-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.parziale-row input {
+    flex: 1;
+}
+
+.parziale-row button {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.parziale-row .btn-delete {
+    background: #9f0000;
+    color: white;
+}
+
+.parziale-row .btn-add {
+    background: #a74800;
+    color: white;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.btn-save {
+    background: #31ff64;
+    color: black;
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-cancel {
+    background: #ff4444;
+    color: white;
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.modified {
+    border: 2px solid #f39c12; /* colore arancio evidenziato */
+    border-radius: 4px;
 }

@@ -83,5 +83,35 @@ def delete_gara(gara_id):
         print(f"ERRORE DELETE: {e}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/update/<int:id_gara>', methods=['PATCH'])
+def update_gara(id_gara):
+    try:
+        dati_nuovi = request.json
+        with open(DB_FILE, 'r') as f:
+            db = json.load(f)
+
+        # Cerca la gara nel database
+        gara_trovata = False
+        for i, gara in enumerate(db):
+            # Usiamo str() o int() per sicurezza nel confronto ID
+            if str(gara.get('id')) == str(id_gara):
+                # Aggiorna i dati della gara esistente con quelli nuovi
+                db[i].update(dati_nuovi)
+                gara_trovata = True
+                break
+
+        if not gara_trovata:
+            return jsonify({"status": "error", "message": "Gara non trovata"}), 404
+
+        with open(DB_FILE, 'w') as f:
+            json.dump(db, f, indent=4)
+
+        return jsonify({"status": "success"})
+
+    except Exception as e:
+        # Questo print ti aiuta a vedere l'errore nel terminale di PythonAnywhere
+        print(f"Errore update: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)

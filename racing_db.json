@@ -8,19 +8,20 @@
         "meteo": "Asciutto",
         "parziali": [
             {
-                "parziale_numero": 1,
                 "tempo": "00:00.3",
                 "ms": 319
             },
             {
-                "parziale_numero": 2,
                 "tempo": "00:00.6",
                 "ms": 609
             },
             {
-                "parziale_numero": 3,
-                "tempo": "00:00.9",
+                "tempo": "00:01.0",
                 "ms": 971
+            },
+            {
+                "tempo": "00:02.1",
+                "ms": 2100
             }
         ]
     }
