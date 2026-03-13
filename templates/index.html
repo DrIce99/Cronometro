@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Racing Chrono</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="info-section">
+            <div class="header">
+                <input type="text" id="pilota" placeholder="Pilota" value="Pilota 1">
+                <input type="text" id="percorso" placeholder="Rally" value="Rally 1">
+                <input type="text" id="tipo" placeholder="Prova" value="Prova 1">
+                <select id="meteo" placeholder="Asfalto">
+                    <option value="Asciutto">Asciutto</option>
+                    <option value="Bagnato">Bagnato</option>
+                    <option value="Ghiacciato">Ghiacciato</option>
+                </select>
+            </div>
+
+            <div class="timer-row">
+                <button id="btnContinua" class="btn-continua" style="visibility: none;">Dati</button>
+                <div class="display" id="main-timer">00:00.0</div>
+            </div>
+            
+            <div class="delta-container">
+                <div id="delta-settore" class="delta-box">SETT: --</div>
+                <div id="delta-totale" class="delta-box">TOT: --</div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="btnStartStop" class="btn start">START</button>
+            <button id="btnParziale" class="btn lap" disabled>LAP</button>
+        </div>
+
+        <button id="btnContinua" class="btn continua" style="display: none;">CONTINUA</button>
+
+        <div id="overlayClassifica" class="overlay">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <input type="text" id="f-pilota-val" placeholder="Pilota..." oninput="mostraClassifica()">
+                    <button id="f-pilota-active" class="btn-filter-toggle active" onclick="toggleFiltroManuale('pilota')"></button>
+                </div>
+                <div class="filter-group">
+                    <input type="text" id="f-percorso-val" placeholder="Rally..." oninput="mostraClassifica()">
+                    <button id="f-percorso-active" class="btn-filter-toggle active" onclick="toggleFiltroManuale('percorso')"></button>
+                </div>
+                <div class="filter-group">
+                    <input type="text" id="f-tipo-val" placeholder="Prova..." oninput="mostraClassifica()">
+                    <button id="f-tipo-active" class="btn-filter-toggle active" onclick="toggleFiltroManuale('tipo')"></button>
+                </div>
+                <div class="filter-group">
+                    <select id="f-meteo-val" onchange="mostraClassifica()">
+                        <option value="Asciutto">Asciutto</option>
+                        <option value="Bagnato">Bagnato</option>
+                        <option value="Ghiacciato">Ghiacciato</option>
+                    </select>
+                    <button id="f-meteo-active" class="btn-filter-toggle active" onclick="toggleFiltroManuale('meteo')"></button>
+                </div>
+                <button onclick="chiudiClassifica()" class="btn-close">X</button>
+            </div>
+            <div id="listaClassifica" class="scroll-list"></div>
+        </div>
+        <button id="btnEsporta" class="btn-small">SCARICA LOG JSON</button>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</body>
+</html>
