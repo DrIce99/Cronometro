@@ -60,6 +60,28 @@ def save_db():
         print(f"ERRORE CRITICO SALVATAGGIO: {e}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route("/api/delete/<gara_id>", methods=["DELETE"])
+def delete_gara(gara_id):
+    try:
+        # carica database
+        if os.path.exists(DB_FILE) and os.path.getsize(DB_FILE) > 0:
+            with open(DB_FILE, "r") as f:
+                db = json.load(f)
+        else:
+            db = []
+
+        # rimuove la gara con quell'id
+        db = [g for g in db if str(g.get("id")) != str(gara_id)]
+
+        # salva il database aggiornato
+        with open(DB_FILE, "w") as f:
+            json.dump(db, f, indent=4)
+
+        return jsonify({"status": "deleted"})
+
+    except Exception as e:
+        print(f"ERRORE DELETE: {e}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,7 +1,7 @@
 [
     {
-        "id": 1773391686742,
-        "data": "13/03/2026, 09:48:06",
+        "id": 1773398683183,
+        "data": "13/03/2026, 11:44:43",
         "pilota": "Pilota 1",
         "percorso": "Rally 1",
         "tipo": "Prova 1",
@@ -9,53 +9,18 @@
         "parziali": [
             {
                 "parziale_numero": 1,
-                "tempo": "00:05.5",
-                "ms": 5530
+                "tempo": "00:00.3",
+                "ms": 319
             },
             {
                 "parziale_numero": 2,
-                "tempo": "00:09.9",
-                "ms": 9962
-            }
-        ]
-    },
-    {
-        "id": 1773391711217,
-        "data": "13/03/2026, 09:48:31",
-        "pilota": "Pilota 1",
-        "percorso": "Rally 1",
-        "tipo": "Prova 1",
-        "meteo": "Asciutto",
-        "parziali": [
-            {
-                "parziale_numero": 1,
-                "tempo": "00:01.2",
-                "ms": 1286
+                "tempo": "00:00.6",
+                "ms": 609
             },
             {
-                "parziale_numero": 2,
-                "tempo": "00:12.2",
-                "ms": 12286
-            }
-        ]
-    },
-    {
-        "id": 1773391723539,
-        "data": "13/03/2026, 09:48:43",
-        "pilota": "Pilota 1",
-        "percorso": "Rally 1",
-        "tipo": "Prova 1",
-        "meteo": "Asciutto",
-        "parziali": [
-            {
-                "parziale_numero": 1,
-                "tempo": "00:03.1",
-                "ms": 3159
-            },
-            {
-                "parziale_numero": 2,
-                "tempo": "00:07.0",
-                "ms": 7061
+                "parziale_numero": 3,
+                "tempo": "00:00.9",
+                "ms": 971
             }
         ]
     }

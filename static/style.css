@@ -336,17 +336,46 @@ select#meteo {
     color: #aaa;
 }
 
-.absolute-best {
-    background: #00ff1a;
-    color: white;
+.actions-bar{
+    display:flex;
+    gap:10px;
+    padding:6px 10px;
+    background:#0a0a0a;
+    border-bottom:2px solid #222;
 }
 
-.improving {
-    background: orange;
-    color: black;
+.btn-edit {
+    width: 400px;
+    padding: 10px;
+    font-size: 24px;
+    background: #9f0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
-.slower {
-    background: red;
+#btnEditMode.active{
+    background:#ff4444;
+    color:white;
+}
+
+.subbtn-edit {
+    max-width: 200px;
+    min-width: 100px;
+    padding: 10px;
+    font-size: 24px;
+    background: #a74800;
     color: white;
+    border: none;
+    border-radius: 5px;
+}
+.subbtn-delete {
+    max-width: 200px;
+    min-width: 100px;
+    padding: 10px;
+    font-size: 24px;
+    background: #9f0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
